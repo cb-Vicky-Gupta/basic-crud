@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
-
-const MONGO_URI = process.env.MONGO_URI ?? 'mongodb://127.0.0.1:27017/mongo-crud';
+import { env } from './env.js';
 
 export async function connectDB(): Promise<void> {
-  await mongoose.connect(MONGO_URI);
+  await mongoose.connect(env.mongoUri);
   console.log('MongoDB connected');
 }
